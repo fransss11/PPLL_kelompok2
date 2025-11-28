@@ -110,7 +110,6 @@ if ($detail) {
 		}
 	}
 }
-
 $formattedPrice = $detail ? formatPrice($detail['harga'] ?? null) : null;
 ?>
 <!DOCTYPE html>
@@ -165,7 +164,6 @@ $formattedPrice = $detail ? formatPrice($detail['harga'] ?? null) : null;
 				.detail-map iframe { min-height:260px; }
 				#detail-hero h1{ font-size:1.9rem; }
 			}
-
 			@media (max-width: 767.98px) {
 				/* stack columns */
 				.detail-wrap{ flex-direction: column; }
@@ -184,7 +182,6 @@ $formattedPrice = $detail ? formatPrice($detail['harga'] ?? null) : null;
 				/* make links/buttons easier to tap */
 				.detail-sidebar a.btn, .btn{ display:inline-block; padding:10px 14px; font-size:1rem; }
 			}
-
 			/* accessibility helpers */
 			.sr-only{ position: absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
 		</style>
