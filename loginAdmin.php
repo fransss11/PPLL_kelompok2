@@ -4,7 +4,7 @@ include "connect.php";   // file koneksi database
 
 // Jika sudah login langsung ke dashboard
 if (isset($_SESSION['admin'])) {
-    header("Location: HalamanAdmin.php");
+    header("Location: dashboard_admin.php");
     exit();
 }
 
@@ -21,7 +21,7 @@ if (isset($_POST['login'])) {
 
     if ($data) {
         if ($password == $data['password']) {
-            echo "<script>alert('Login berhasil!'); window.location='HalamanAdmin.php';</script>";
+            echo "<script>alert('Login berhasil!'); window.location='dashboard_admin.php';</script>";
             exit();
         } else {
             $error = "Password salah!";
