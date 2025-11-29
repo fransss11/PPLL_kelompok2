@@ -1,12 +1,6 @@
 <?php
 session_start();
-include "connect.php";
-
-// Jika belum login -> redirect ke login
-// if (!isset($_SESSION['admin'])) {
-//     header("Location: loginAdmin.php");
-//     exit();
-// }
+include "../connect.php";
 
 // $username = $_SESSION['username'];
 $query = mysqli_query($conn, "SELECT * FROM admin WHERE username='$username'");
@@ -23,7 +17,7 @@ $data = mysqli_fetch_assoc($query);
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-image: url("images/services-1.jpg");
+            background-image: url("../images/services-1.jpg");
             background-size: cover;
             background-position: center;
             background-color: rgba(0,0,0,0.45);
