@@ -5,7 +5,7 @@ $teamMembers = [
     [
         'name' => 'Narendra Wardianto',
         'nim' => '220411100078',
-        'jobdesk' => 'Halaman Profil',
+        'jobdesk' => 'Halaman Profil dan Deploy',
         'github' => 'https://github.com/naren56',
     ],
     [
@@ -47,7 +47,7 @@ $teamMembers = [
     [
         'name' => 'Mahardika Dwi Sandra',
         'nim' => '220411100195',
-        'jobdesk' => 'CRUD Data Admin dan Deploy',
+        'jobdesk' => 'CRUD Data Admin',
         'github' => 'https://github.com/22-195-mahardika',
     ],
 ];
