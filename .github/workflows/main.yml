@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Deploy to InfinityFree using FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
@@ -22,7 +22,3 @@ jobs:
           port: 21
           local-dir: "./"
           server-dir: "/htdocs/"
-          exclude: |
-            **/.git*
-            **/.github*
-            **/node_modules*
