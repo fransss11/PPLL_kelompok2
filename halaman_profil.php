@@ -47,7 +47,7 @@ $teamMembers = [
     [
         'name' => 'Mahardika Dwi Sandra',
         'nim' => '220411100195',
-        'jobdesk' => 'CRUD Data Admin',
+        'jobdesk' => 'CRUD Data Admin Wisata',
         'github' => 'https://github.com/22-195-mahardika',
     ],
 ];
