@@ -2,8 +2,8 @@
 session_start();
 include "connect.php";   // file koneksi database
 
-// Jika sudah login langsung ke dashboard
-if (isset($_SESSION['admin'])) {
+// Jika sudah login, langsung ke dashboard
+if (isset($_SESSION['status']) && $_SESSION['status'] == "login") {
     header("Location: admin/dashboard_admin.php");
     exit();
 }
@@ -11,17 +11,29 @@ if (isset($_SESSION['admin'])) {
 // PROSES LOGIN
 if (isset($_POST['login'])) {
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    // Pakai real_escape_string biar aman dari hack dasar
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    // Ambil data admin
+    // Ambil data admin berdasarkan username
     $query = "SELECT * FROM admin WHERE username='$username' LIMIT 1";
     $result = mysqli_query($conn, $query);
     $data = mysqli_fetch_assoc($result);
 
     if ($data) {
+        // Cek Password (Pastikan di database passwordnya plain text/belum di-hash)
         if ($password == $data['password']) {
-            echo "<script>alert('Login berhasil!'); window.location='admin/dashboard_admin.php';</script>";
+            
+            // ===========================================
+            // BAGIAN PENTING: SIMPAN DATA KE SESSION
+            // ===========================================
+            $_SESSION['id_admin']   = $data['id_admin'];
+            $_SESSION['nama_admin'] = $data['nama_admin'];
+            $_SESSION['username']   = $data['username'];
+            $_SESSION['level']      = $data['level']; // <--- WAJIB ADA BIAR FITUR SUPERADMIN JALAN
+            $_SESSION['status']     = "login";
+
+            echo "<script>alert('Login berhasil! Selamat Datang " . $data['nama_admin'] . "'); window.location='admin/dashboard_admin.php';</script>";
             exit();
         } else {
             $error = "Password salah!";
@@ -114,7 +126,6 @@ if (isset($_POST['login'])) {
 <div class="login-box">
     <h2>Login Admin</h2>
 
-    <!-- error -->
     <?php if (!empty($error)) : ?>
         <div class="error-box"><?php echo $error; ?></div>
     <?php endif; ?>
