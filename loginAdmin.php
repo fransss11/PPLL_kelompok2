@@ -30,7 +30,7 @@ if (isset($_POST['login'])) {
             $_SESSION['id_admin']   = $data['id_admin'];
             $_SESSION['nama_admin'] = $data['nama_admin'];
             $_SESSION['username']   = $data['username'];
-            $_SESSION['level']      = $data['level']; // <--- WAJIB ADA BIAR FITUR SUPERADMIN JALAN
+            $_SESSION['level']      = $data['level']; 
             $_SESSION['status']     = "login";
 
             echo "<script>alert('Login berhasil! Selamat Datang " . $data['nama_admin'] . "'); window.location='admin/dashboard_admin.php';</script>";
